@@ -39,13 +39,16 @@ function App() {
   return (
     <div className='body'>
     <Container >
-    <h1 className='col-md-6 d-flex justify-content-center align-items-center header'>Dictionary of League of Legends</h1>
+    <div className='d-flex justify-content-center'>
+    <h1 className=  'header'>Dictionary of League of Legends</h1>
+    </div>
     <div className='spacer'/>
     <SearchBar setSearchValue = {setSearchValue} championNames={championNames} searchValue = {searchValue}/>
     <div className ="belowSearchBar">
     <ChampionBoard searchValue = {searchValue} setMessage = {setMessage} results/>
     {message ? <h1>{message}</h1> : <h1></h1>}
     </div>
+    <div className='py-3 my-4'></div>
     </Container>
     </div>
   );

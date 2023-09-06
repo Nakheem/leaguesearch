@@ -9,10 +9,8 @@
 }
 
 .body{
-  background-image: url(../src/images/Akali.jpg);
-  background-repeat: repeat-x;
-  background-size: cover;
-  height: 100%;
+  
+  
 }
 
 .belowSearchBar{
@@ -21,6 +19,5 @@
 }
 
 .header{
-
   color: white;
 }

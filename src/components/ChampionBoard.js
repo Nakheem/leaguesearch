@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./ChampionBoard.css"
+import ChampionStats from "./ChampionStats";
 export default function CardHolder({ searchValue, setMessage }) {
   const [championDetails, setChampionDetails] = useState(null);
   const [winRate, setWinRate] = useState(null);
@@ -170,71 +171,8 @@ export default function CardHolder({ searchValue, setMessage }) {
               </div>
             </div>
           </div>
-          <div className="row">
-            <div className="col-md-3">
-              <div>HP: {championDetails.hp}</div>
-            </div>
-            <div className="col-md-3">
-              <div>MP: {championDetails.mp}</div>
-            </div>
-            <div className="col-md-3">
-              <div>Attack Damage: {championDetails.attackdamage}</div>
-            </div>
-            <div className="col-md-3">
-              <div>Attack Damage Per Level: {championDetails.attackdamageperlevel}</div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-md-3">
-              <div>Attack Speed Per Level: {championDetails.attackspeedperlevel}</div>
-            </div>
-            <div className="col-md-3">
-              <div>Attack Speed: {championDetails.attackspeed}</div>
-            </div>
-            <div className="col-md-3">
-              <div>Armor: {championDetails.armor}</div>
-            </div>
-            <div className="col-md-3">
-              <div>MP Per Level: {championDetails.mpperlevel}</div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-md-3">
-              <div>Move Speed: {championDetails.movespeed}</div>
-            </div>
-            <div className="col-md-3">
-              <div>Armor Per Level: {championDetails.armorperlevel}</div>
-            </div>
-            <div className="col-md-3">
-              <div>Spell Block: {championDetails.spellblock}</div>
-            </div>
-            <div className="col-md-3">
-              <div>Spell Block Per Level: {championDetails.spellblockperlevel}</div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-md-3">
-              <div>Attack Range: {championDetails.attackrange}</div>
-            </div>
-            <div className="col-md-3">
-              <div>HP Regen: {championDetails.hpregen}</div>
-            </div>
-            <div className="col-md-3">
-              <div>HP Regen Per Level: {championDetails.hpregenperlevsel}</div>
-            </div>
-            <div className="col-md-3">
-              <div>MP Regen: {championDetails.mpregen}</div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-md-3">
-              <div>Crit: {championDetails.crit}</div>
-            </div>
-            <div className="col-md-3">
-              <div>Crit Per Level: {championDetails.critperlevel}</div>
-            </div>
-          </div>
-
+          <ChampionStats 
+          championDetails = {championDetails}/>
         </>
       ) : (
         <p>No champion found.</p>
