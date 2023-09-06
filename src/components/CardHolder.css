@@ -1,0 +1,10 @@
+.logo {
+    width: 350px;
+    height: 600px;
+}
+
+.carsousel{
+    display: flex;
+    justify-content: center;
+    background-color: reds;
+}
