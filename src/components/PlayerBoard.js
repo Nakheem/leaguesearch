@@ -4,20 +4,19 @@ import ChampionStats from "./ChampionStats";
 import {useParams } from "react-router-dom"
 
 
-export default function CardHolder() {
+export default function CardHolder({ setMessage }) {
   
-  const params = useParams()
+  const {name} = useParams()
   
-  console.log(params.championName)
-  const searchValue = params.championName
-
-  console.log(searchValue)
+  const searchValue = name
 
   const [championDetails, setChampionDetails] = useState(null);
   const [winRate, setWinRate] = useState(null);
   const [banRate, setBanRate] = useState(null);
   const [spellNames, setSpellNames] = useState([]);
   const [spellImgNames, setSpellImgNames] = useState([]);
+
+  console.log("hi");
 
 
   useEffect(() => {
@@ -66,10 +65,10 @@ export default function CardHolder() {
           passiveImg: passiveImg,
         };
         setChampionDetails(championDetails);
-        // setMessage("");
+        setMessage("");
       } catch (error) {
         setChampionDetails(null);
-        //setMessage("Champion Not found");
+        setMessage("Champion Not found");
         console.error(error.message);
       }
     };

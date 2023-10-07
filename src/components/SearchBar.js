@@ -1,12 +1,16 @@
 import React from "react";
 import Select from "react-select";
+import { useNavigate } from "react-router-dom";
 
 import "../components/searchBar.css";
 
-export default function SearchBar({ setSearchValue, championNames, searchValue }) {
+export default function SearchBar({ championNames }) {
+
+  const navigate = useNavigate()
   const handleChange = (selectedOption) => {
-    setSearchValue(selectedOption.value);
+    navigate(`champion/${selectedOption.value}`)
   };
+
 
   const options = championNames.map((championName) => ({
     value: championName,
@@ -16,14 +20,21 @@ export default function SearchBar({ setSearchValue, championNames, searchValue }
   return (
     <>
       <form>
-        <Select
-          options={options}
-          value={{ value: searchValue, label: searchValue }}
-          onChange={handleChange}
-          isClearable
-          placeholder="Select or type a champion..."
-          className="searchBar"
-        />
+        {championNames? (
+          <Select
+            options={options}
+            value={{ value: options.value, label: options.label }}
+            onChange={handleChange}
+            isClearable
+            placeholder="Select or type a champion..."
+            className="searchBar"
+          />
+        ) : (
+          <Select
+            placeholder="An error has occured cannot retrive champions"
+          />
+        )}
+
       </form>
     </>
   );
